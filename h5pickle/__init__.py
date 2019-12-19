@@ -52,6 +52,7 @@ class Dataset:
         self.dataset = dataset
 
     def __getstate__(self):
+        self = File(self.file_name, mode=self.file_mode)[self.dataset_name]
         state = self.__dict__.copy()
         del state['dataset']
         return state
