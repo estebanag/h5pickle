@@ -153,5 +153,5 @@ class File(h5py.File):
         with lock:
             h5py.File.close(self)
             for key in list(cache.keys()):
-                if cache[key] == self.hsh:
+                if key == self.hsh:
                     del cache[key]
